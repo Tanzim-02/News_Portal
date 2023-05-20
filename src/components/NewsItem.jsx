@@ -1,11 +1,9 @@
-import  { Component } from "react";
 import defaultImage from "../assets/12.jpg";
 import "../index.css";
 
-class NewsItem extends Component {
-  render() {
+const NewsItem = (props)=> {
     const { title, description, urlToImage, url, author, date, source } =
-      this.props;
+      props;
 
     return (
       <div className="my-3">
@@ -50,6 +48,6 @@ class NewsItem extends Component {
       </div>
     );
   }
-}
+
 
 export default NewsItem;
