@@ -17,10 +17,12 @@ const News = (props) => {
 
   useEffect(() => {
     fetchNews();
+    // eslint-disable-next-line
   }, []);
 
   const fetchNews = async () => {
-    const { country, category, pageSize, setProgress, apiKey } = props;
+    // eslint-disable-next-line
+    const { country, category, pageSize, setProgress, apiKey } = props; 
     const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`;
 
     try {
@@ -38,11 +40,15 @@ const News = (props) => {
     }
   };
 
-  const fetchMoreData = async () => {
-    setPage(page + 1);
-
+ 
+  
+const fetchMoreData = async () => {
+    // eslint-disable-next-line
     const { country, category, pageSize, apiKey } = props;
-    const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`;
+    const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apiKey}&page=${page+1}&pageSize=${pageSize}`;
+    setPage(page+1);
+
+    
 
     try {
       const response = await axios.get(url);
@@ -59,7 +65,7 @@ const News = (props) => {
 
   return (
     <div>
-      <h2 className="text-center" style={{ margin: "35px 0" }}>
+      <h2 className="text-center" style={{ margin: "35px 0", marginTop:"90px" }}>
         NewsCaper - Top Headlines from {capitalize(category)}
       </h2>
 
